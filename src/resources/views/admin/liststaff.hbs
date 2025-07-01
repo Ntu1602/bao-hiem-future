@@ -1,0 +1,166 @@
+<div class="container flex-column mt-4">
+  <button><a href="/admin/addstaff">Thêm nhân viên</a></button>
+    <h4 class="mb-3 text-black">Danh sách tư vấn viên</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Họ và tên</th>
+            <th scope="col">Chức vụ</th>
+            <th scope="col">Mã số tư vấn</th>
+            <th scope="col">Số điện thoại</th>
+            <th scope="col">Email</th>
+            <th colspan="2" scope="col">Tác vụ</th>
+          </tr>
+        </thead>
+        <tbody>
+            {{#each member}}
+          <tr>
+            <td>{{inc @index}}</td>
+            <td>{{name}}</td>
+            <td>{{position}}</td>
+            <td>{{code}}</td>
+            <td>{{phonenumber}}</td>
+            <td>{{email}}</td>
+            <td><a
+              data-id="{{_id}}"
+              data-image="{{image}}"
+              data-name="{{name}}"
+              data-position="{{position}}"
+              data-code="{{code}}"
+              data-birthday="{{getDate birthday}}"
+              data-phonenumber="{{phonenumber}}"
+              data-email="{{email}}"
+              data-address="{{address}}"
+              data-linkFacebook="{{social-facebook}}"
+              data-linkZalo="{{social-zalo}}"
+              class="btn-edit-staff">SỬA</a></td>
+            <td><a href="/admin/delete-staff/{{_id}}">XOÁ</a></td>
+          </tr>
+          {{/each}}
+          <!-- Thêm hàng mới tại đây -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+<div class="form-edit-staff container pt-2">
+    <div class="close-form">x</div>
+    <h3 class="mb-4">Chỉnh Sửa Thông Tin Nhân Viên</h3>
+    <form class="edit-form" method="POST" action="" enctype="multipart/form-data">
+      <div class="mb-0">
+        <label for="image" class="form-label m-0">Ảnh đại diện</label>
+        <input type="file" class="form-control" id="image" name="image" accept="image/*" >
+        <input type="hidden" id="imagePre" name="imagePre">
+        <input type="hidden" id="id" name="id">
+      </div>
+      <div class="mb-0">
+        <label for="name" class="form-label m-0">Họ và tên</label>
+        <input type="text" class="form-control" id="name" name="name">
+      </div>
+
+      <div class="mb-0">
+        <label for="position" class="form-label m-0">Chức vụ</label>
+        <input type="text" class="form-control" id="position" name="position" required>
+      </div>
+
+      <div class="mb-0">
+        <label for="code" class="form-label m-0">Mã số tư vấn</label>
+        <input type="text" class="form-control" id="code" name="code" required>
+      </div>
+
+      <div class="mb-0">
+        <label for="date" class="form-label m-0">Ngày sinh</label>
+        <input type="date" class="form-control" id="date" name="date" >
+      </div>
+
+      <div class="mb-0">
+        <label for="phonenumber" class="form-label m-0">Số điện thoại</label>
+        <input type="tel" class="form-control" id="phonenumber" name="phonenumber" required>
+      </div>
+
+      <div class="mb-0">
+        <label for="email" class="form-label m-0">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+
+      <div class="mb-0">
+        <label for="address" class="form-label m-0">address</label>
+        <input type="text" class="form-control" id="address" name="address" >
+      </div>
+
+      <div class="mb-0">
+        <label for="facebook" class="form-label m-0">Link Facebook</label>
+        <input type="text" class="form-control" id="facebook" name="facebook" >
+      </div>
+
+      <div class="mb-0">
+        <label for="zalo" class="form-label m-0">Link Zalo</label>
+        <input type="text" class="form-control" id="zalo" name="zalo" >
+      </div>
+
+      <button type="submit" 
+
+      class="btn btn-primary mt-2">Lưu</button>
+    </form>
+  </div>
+
+<script>
+  let btnEditStaff = document.querySelectorAll(".btn-edit-staff");
+  let displayEditStaff = document.querySelector(".form-edit-staff");
+  let editForm = document.querySelector(".edit-form");
+  let closeForm = document.querySelector(".close-form");
+    btnEditStaff.forEach(value => {
+    value.addEventListener("click", () =>{
+    let date = value.dataset.birthday;
+    console.log(date);
+    displayEditStaff.style.transform = "translateX(0)";
+    editForm.action = "/admin/edit-member/" + value.dataset.id;
+    document.querySelector("#id").value = value.dataset.id;
+    document.querySelector("#imagePre").value = value.dataset.image;
+    document.querySelector('#name').value = value.dataset.name;
+    document.querySelector('#position').value = value.dataset.position;
+    document.querySelector('#code').value = value.dataset.code;
+    document.querySelector('#date').value = reverseDate(date);
+    document.querySelector('#phonenumber').value = value.dataset.phonenumber;
+    document.querySelector('#email').value = value.dataset.email;
+    document.querySelector('#address').value = value.dataset.address;
+    document.querySelector('#facebook').value = value.dataset.linkFacebook;
+    document.querySelector('#zalo').value = value.dataset.linkZalo;
+    })
+  })
+
+  closeForm.addEventListener("click",()=>{
+    displayEditStaff.style.transform = "translateX(100%)";
+  });
+
+  function reverseDate(dateStr) {
+  // Giả sử dateStr có định dạng "DD-MM-YYYY" hoặc "DD MM YYYY"
+  const parts = dateStr.split(" - ");
+  return `${parts[2]}-${parts[1]}-${parts[0]}`;
+  }
+
+</script>
+
+<style>
+  .close-form{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  .form-edit-staff{
+    position: fixed;
+    top:0;
+    right: 0;
+    max-width: 500px;
+    height: 100vh;
+    background-color: #fff;
+    border-left: 2px solid #333;
+    transform: translateX(100%);
+    transition: transform 1s ease;
+  }
+</style>

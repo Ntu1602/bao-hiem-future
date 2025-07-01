@@ -1,0 +1,31 @@
+
+
+
+<!-- Nội dung bài viết -->
+<div class="container my-5">
+  <article class="bg-white p-4 rounded-4 shadow-sm">
+    
+    <!-- Tiêu đề bài viết -->
+    <h1 class="mb-3 text-primary fw-bold">
+      {{post.title}}
+    </h1>
+    
+    <!-- Thông tin phụ -->
+    <p class="text-muted mb-4">
+      <i class="bi bi-calendar"></i> {{getTime post.createAt}} {{getDate post.createAt}} &nbsp;|&nbsp; 
+      <i class="bi bi-person"></i> {{post.author}}
+    </p>
+
+    <!-- Nội dung bài viết -->
+    <div class="post-content">
+      {{{post.content}}}
+    </div>
+    
+    <!-- Quay lại trang danh sách -->
+    <div class="mt-5 text-end">
+      <a href="/post/post-listing" class="btn btn-outline-primary rounded-pill">← Quay lại danh sách</a>
+    </div>
+
+  </article>
+</div>
+

@@ -1,0 +1,285 @@
+<section class="hero-section d-flex justify-content-center align-items-center" id="section_1" style="background-image: url('/images/bg_vanphong.jpeg');">
+	<div class="section-overlay"></div>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+		<path fill="#FF671F" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path>
+	</svg>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-12 mb-5 mb-lg-0">
+				<h2 class="text-white">Chào mừng đến với</h2>
+				<h1 class="cd-headline rotate-1 text-white mb-4 pb-2">
+                                <span>Văn phòng Hồ Chí Minh 12</span>
+                                <span class="cd-words-wrapper">
+                                    <b class="is-visible">THÂN THIỆN</b>
+                                    <b>NHIỆT TÌNH</b>
+                                    <b>TẬN TÂM</b>
+                                </span>
+                            </h1>
+				<div class="custom-btn-group"> <a href="#section_2" class="btn custom-btn smoothscroll me-3">Về chúng tôi</a> <a href="#section_3" class="link smoothscroll">Đăng ký tư vấn</a> </div>
+			</div>
+			<div class="col-lg-6 col-12">
+				<div class="ratio ratio-16x9">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/7Ar2AfnvYXQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+		<path fill="#ffffff" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
+	</svg>
+</section>
+<section class="about-section section-padding" id="section_2">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-12 text-center">
+				<h2 class="mb-lg-5 mb-4">Về Future</h2> </div>
+			<div class="row">
+				<div class="col-lg-5 col-12 me-auto mb-4 mb-lg-0">
+					<h3 class="mb-3">Future - Văn phòng Hồ Chí Minh 12</h3>
+					<p><strong>Future</strong> là Văn phòng Tổng Đại lý (GA) của Công ty Bảo hiểm Nhân thọ Hanwha Life Việt Nam – một trong những thương hiệu bảo hiểm hàng đầu đến từ Hàn Quốc, với hơn 70 năm kinh nghiệm trên thị trường quốc tế.</p>
+					<p>Với sứ mệnh đồng hành và bảo vệ tài chính cho hàng triệu gia đình Việt, Future tự hào mang đến các giải pháp bảo hiểm nhân thọ toàn diện, phù hợp với từng giai đoạn cuộc sống và nhu cầu của khách hàng. Từ bảo vệ sức khỏe, tích lũy cho tương lai, đến các giải pháp giáo dục và hưu trí – chúng tôi luôn đặt quyền lợi khách hàng lên hàng đầu.</p>
+					<p>Đội ngũ tư vấn viên của Future được đào tạo bài bản, tận tâm và chuyên nghiệp, cam kết tư vấn đúng – đủ – rõ ràng, giúp khách hàng hiểu rõ quyền lợi và đưa ra quyết định tài chính phù hợp nhất.</p>
+					<p>Gia nhập Future, bạn không chỉ nhận được những sản phẩm bảo hiểm chất lượng từ Hanwha Life, mà còn được đồng hành bởi một đội ngũ năng động, sáng tạo và luôn hướng đến giá trị bền vững cho cộng đồng.</p>
+				</div>
+				<div class="col-lg-6">
+					<div class="row"> 
+						{{#each member}}
+						<div class="member-info col-lg-6 col-md-6 col-12 mb-4">
+							<div class="member-block">
+								<div class="ratio ratio-1x1 overflow-hidden rounded position-relative">
+									<div class="link-social">
+									<a href="{{social_facebook}}" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook" style="font-size: 48px;"></i></a>
+									<a href="{{social_zalo}}" target="_blank" rel="noopener noreferrer"><img src="/icon/zalo_icon.png" alt="" style="width:48px;height:48px;"></a>
+								</div>
+									<img src="{{image}}" class="w-100 h-100 object-fit-cover" alt="{{name}}"> 
+								</div>
+								<div class="member-block-info d-flex align-items-center justify-content-between mt-2 position-relative" style="z-index: 10;">
+									<h4 class="mb-0">{{name}}</h4>
+									<p class="mb-0 text-muted">{{position}}</p>
+								</div>
+							</div>
+						</div> 
+						{{/each}} 
+					</div>
+				</div>
+			</div>
+			<div class="staff-wrapper position-relative">
+				<!-- Nút Prev -->
+				<button class="scroll-btn prev" id="prevBtn">❮</button>
+
+				<!-- Danh sách nhân viên -->
+				<div class="staff-container" id="staffContainer">
+					{{#each memberFC}}
+					<div class="staff-card">
+						<div class="position-relative wrap-image-member">
+							<div class="link-social">
+								<a href="{{social_facebook}}" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook" style="font-size: 48px;"></i></a>
+								<a href="{{social_zalo}}" target="_blank" rel="noopener noreferrer"><img src="/icon/zalo_icon.png" alt="" style="width:48px;height:48px;"></a>
+							</div>
+							<img src="{{this.image}}" alt="{{this.name}}" class="w-100 object-fit-cover" />
+						</div>
+						<h5 class="mt-2">{{this.name}}</h5>
+						<p class="m-0">{{this.position}}</p>
+					</div>
+					{{/each}}
+				</div>
+
+				<!-- Nút Next -->
+				<button class="scroll-btn next" id="nextBtn">❯</button>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section-bg-image" style="background-image: url('../images/bg_vanphong1.jpg');background-position:bottom">
+	<svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path>
+		<path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path>
+		<path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path>
+		<path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path>
+		<path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path>
+	</svg>
+	<div class="container">
+		<div class="row" style="height: 400px;"> </div>
+	</div>
+	<svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<path fill="rgba(255, 255, 255, 1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z" stroke-width="0"></path>
+		<path fill="rgba(255, 255, 255, 1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z" stroke-width="0"></path>
+		<path fill="rgba(255, 255, 255, 1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z" stroke-width="0"></path>
+		<path fill="rgba(255, 255, 255, 1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z" stroke-width="0"></path>
+		<path fill="rgba(255, 255, 255, 1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z" stroke-width="0"></path>
+	</svg>
+</section>
+<section class="membership-section section-padding" id="section_3">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-12 text-center mx-auto mb-lg-5 mb-4">
+				<h2><span>Sản phẩm bảo hiểm</span></h2> </div>
+			<div class="col-lg-12 col-12 mb-3 mb-lg-0">
+
+				<body class="bg-light py-5">
+					<div class="container">
+						<div class="row g-4">
+							<div class="col-md-6 col-lg-3">
+								<div class="info-box h-100 d-flex flex-column justify-content-between"> 
+									<i class="fas fa-hand-holding-usd"></i>
+									<div class="title">Bảo vệ & tích lũy</div>
+									<p class="flex-grow-1 align-items-center">Đảm bảo cuộc sống bình an và tài chính vững bền trong mọi thời điểm</p> <a href="https://hanwhalife.com.vn/vi/product-listing/bao-ve-tich-luy.html" target="_blank">Tìm hiểu thêm</a> </div>
+							</div>
+							<div class="col-md-6 col-lg-3">
+								<div class="info-box h-100 d-flex flex-column justify-content-between">
+									<i class="fas fa-percentage"></i>
+									<div class="title">Bảo vệ & đầu tư</div>
+									<p class="flex-grow-1 align-items-center">Chu toàn bảo vệ cùng cơ hội tăng trưởng tài sản nhanh chóng</p> <a href="https://hanwhalife.com.vn/vi/product-listing/bao-ve-dau-tu.html" target="_blank">Tìm hiểu thêm</a> </div>
+							</div>
+							<div class="col-md-6 col-lg-3">
+								<div class="info-box h-100 d-flex flex-column justify-content-between   "> 
+									<i class="fas fa-heart"></i>
+									<div class="title">Bảo vệ sức khoẻ</div>
+									<p class="flex-grow-1 align-items-center">An tâm sống khỏe, tận hưởng cuộc sống trọn vẹn</p> <a href="https://hanwhalife.com.vn/vi/product-listing/bao-ve-suc-khoe.html" target="_blank">Tìm hiểu thêm</a> </div>
+							</div>
+							<div class="col-md-6 col-lg-3">
+								<div class="info-box h-100 d-flex flex-column justify-content-evelyn"> 
+									<i class="fas fa-users"></i>
+									<div class="title">Gia tăng bảo vệ</div>
+									<p class="flex-grow-1 align-items-center">Tăng cường bảo vệ cho bản thân và gia đình trước mọi rủi ro của cuộc sống</p> <a href="https://hanwhalife.com.vn/vi/product-listing-addin" target="_blank">Tìm hiểu thêm</a> </div>
+							</div>
+						</div>
+					</div>
+			</div>
+			<div class="col-lg-8 col-12 mx-auto mt-5">
+				<h4 class="mb-4 pb-lg-2 mx-auto">Liên hệ với chúng tôi!</h4>
+				<form action="/form-advise" method="post" class="custom-form membership-form shadow-lg" role="form">
+					<h4 class="text-white mb-4">Đăng ký tư vấn</h4>
+					<div class="form-floating">
+						<input type="text" name="name" id="full-name" class="form-control" placeholder="Họ và tên" required="">
+						<label for="floatingInput">Họ và tên</label>
+					</div>
+					<div class="form-floating">
+						<input type="date" name="birthday" id="birthday" class="form-control" placeholder="Ngày Sinh">
+						<label for="floatingInput">Ngày Sinh</label>
+					</div>
+					<div class="form-floating">
+						<input type="email" name="mail" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Địa chỉ Email">
+						<label for="floatingInput">Địa chỉ Email</label>
+					</div>
+					<div class="form-floating">
+						<input type="text" name="phone" id="phone-number" class="form-control" placeholder="Số điện thoại" required="">
+						<label for="floatingInput">Số điện thoại</label>
+					</div>
+					<div class="form-floating">
+						<textarea class="form-control" id="message" name="note" placeholder="Thêm ghi chú ở đây."></textarea>
+						<label for="floatingTextarea"> Ghi chú</label>
+					</div>
+					<button type="submit" class="form-control">Đăng ký</button>
+			</div>
+			</form>
+		</div>
+	</div>
+	</div>
+</section>
+<section class="events-section section-bg section-padding" id="section_4">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-12">
+				<h2 class="mb-lg-3">Sự kiện sắp diễn ra</h2> 
+			</div> 
+			{{#each event}}
+				<div class="row custom-block mb-3">
+					<div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
+						<div class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
+							<h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">{{getDay startAt}}</h6> <strong class="text-white">{{getMonth startAt}} - {{getYear startAt}}</strong> </div>
+					</div>
+					<div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
+						<div class="custom-block-image-wrap">
+							<a href="event/{{slug}}"> <img src="{{thumbnail}}" class="custom-block-image img-fluid" alt="" style="max-height:250px;"> <i class="custom-block-icon bi-link"></i> </a>
+						</div>
+					</div>
+					<div class="col-lg-6 col-12 order-3 order-lg-0">
+						<div class="custom-block-info mt-2 mt-lg-0"> <a href="event/{{slug}}" class="events-title mb-3">{{title}}</a>
+							<p class="mb-0 event-content">{{{content}}}</p>
+							<div class="d-flex flex-wrap border-top mt-4 pt-3">
+								<div class="mb-4 mb-lg-0">
+									<div class="d-flex flex-wrap align-items-center mb-1"> <span class="custom-block-span">Địa chỉ:</span>
+										<p class="mb-0">{{location}}</p>
+									</div>
+									<div class="d-flex flex-wrap align-items-center"> <span class="custom-block-span">Vé:</span>
+										<p class="mb-0">{{ticket}}</p>
+									</div>
+								</div>
+								<div class="d-flex align-items-center ms-lg-auto"> <a href="event/{{slug}}" class="btn custom-btn">Tham Gia</a> </div>
+							</div>
+						</div>
+					</div>
+				</div> 
+			{{/each}} 
+			</div>
+	</div>
+</section>
+<section class="contact-section section-padding" id="section_5">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5 col-12">
+				<form action="form-contact" method="post" class="custom-form contact-form" role="form">
+					<h2 class="mb-4 pb-2">Liên hệ Future</h2>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-12">
+							<div class="form-floating">
+								<input type="text" name="name" id="full-name" class="form-control" placeholder="Họ và tên" required="">
+								<label for="floatingInput">Họ và tên</label>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-12">
+							<div class="form-floating">
+								<input type="text" name="phone" id="phone-number" pattern="[0-9]+" class="form-control" placeholder="Số điện thoại" required="">
+								<label for="floatingInput">Số điện thoại</label>
+							</div>
+						</div>
+						<div class="col-lg-12 col-md-6 col-12">
+							<div class="form-floating">
+								<input type="email" name="mail" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Địa chỉ Email">
+								<label for="floatingInput">Địa chỉ Email</label>
+							</div>
+						</div>
+						<div class="col-lg-12 col-12">
+							<div class="form-floating">
+								<textarea class="form-control" id="message" name="note" placeholder="Để lại lời nhắn ở đây"></textarea>
+								<label for="floatingTextarea">Tin nhắn</label>
+							</div>
+							<button type="submit" class="form-control">Gửi</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-lg-6 col-12">
+				<div class="contact-info mt-5">
+					<div class="contact-info-item">
+						<div class="contact-info-body"> <strong>Tân Bình, Hồ Chí Minh</strong>
+							<p class="mt-2 mb-1"> <a href="tel: 010-020-0340" class="contact-link">
+                                                0909 655 715
+                                            </a> </p>
+							<p class="mb-0"> <a href="mailto:info@company.com" class="contact-link">
+                                                cty.tnhh.tvtc.future@gmail.com
+                                            </a> </p>
+						</div>
+						<div class="contact-info-footer"> <a href="#">Google Map</a> </div>
+					</div> <img src="images/WorldMap.svg" class="img-fluid" alt=""> </div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+  const container = document.getElementById("staffContainer");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+
+  const scrollAmount = 300; // số px cuộn mỗi lần
+
+  nextBtn.addEventListener("click", () => {
+    container.scrollLeft += scrollAmount;
+  });
+
+  prevBtn.addEventListener("click", () => {
+    container.scrollLeft -= scrollAmount;
+  });
+</script>

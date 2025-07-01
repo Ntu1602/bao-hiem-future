@@ -1,0 +1,32 @@
+<div class="container flex-column mt-4">
+  {{!-- <button><a href="/admin/addstaff">Thêm nhân viên</a></button> --}}
+    <h4 class="mb-3 text-black">Danh sách tư vấn viên đã xoá</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Tiêu đề</th>
+            <th scope="col">Danh mục</th>
+            <th scope="col">Tác giả</th>
+            <th scope="col">Thời gian</th>
+            <th colspan="2" scope="col">Tác vụ</th>
+          </tr>
+        </thead>
+        <tbody>
+            {{#each posts}}
+          <tr>
+            <td>{{inc @index}}</td>
+            <td>{{title}}</td>
+            <td>{{category}}</td>
+            <td>{{author}}</td>
+            <td>{{getTime createAt}} - {{getDate createAt}}</td>
+            <td><a href="/admin/restorePost/{{_id}}">KHÔI PHỤC</a></td>
+            <td><a href="/admin/delete-post-forever/{{_id}}">XOÁ VĨNH VIỄN</a></td>
+          </tr>
+          {{/each}}
+          <!-- Thêm hàng mới tại đây -->
+        </tbody>
+      </table>
+    </div>
+</div>

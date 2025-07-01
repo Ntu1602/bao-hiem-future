@@ -1,0 +1,221 @@
+    <style>
+    .category-badge {
+      background: red;
+      color: white;
+      font-size: 1.2rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .post-img {
+      height: 180px;
+      object-fit: cover;
+    }
+    .post-title{
+      position: absolute;
+      bottom: 10px;
+      background-color: rgba(255,255,255,0.3);
+      padding: 16px;
+      animation: showPostTitle 1.5s ease;
+    }
+    @keyframes showPostTitle {
+      from{opacity: 0;}to{opacity: 1;}
+    }
+    .post-block {
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease, transform 1s ease;
+    opacity: 0;
+    transform: translateX(100%);
+    z-index: 0;
+  }
+  .post-block-page {
+    display: none;
+  }
+
+  .post-block-page.show {
+    display: block;
+  }
+
+  .post-block.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 1;
+  }
+
+  .post-block.prev {
+    transform: translateX(-100%);
+  }
+  .post-image{
+    width: 100%;
+    transition: scale 0.2s ease-in;
+    max-height: 800px;
+    object-fit: contain;
+  }
+  .post-block-scale{
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .post-block-scale:hover .post-image{
+    scale: 1.1;
+  }
+
+  #slider {
+    max-height: 800px; /* hoặc tùy bạn muốn */
+  }
+  .slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  max-width: 100%;
+  height: auto;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+  width: 100%; /* vì có 2 ảnh */
+}
+
+.slider-track img {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+  </style>
+  <div class="container my-4">
+    <!-- Top Featured News -->
+    <div class="row mb-4">
+      <div class="col-md-8 position-relative overflow-hidden" id="slider">
+        {{#each postNew}}
+        <a href="/post/{{slug}}" rel="noopener noreferrer">
+          <div class="post-block post-block-scale position-absolute slide">
+            <img src="{{image}}" class="img-fluid rounded post-image" alt="">
+            <div class="post-title">
+              <span class="category-badge">{{category}}</span>
+              <h2 class="mt-2 fw-bold">{{title}}</h2>
+              <p style="color:white">Tác giả : {{author}} - {{getTime createAt}} - {{getDate createAt}}</p>
+            </div>
+          </div>
+        </a>
+        {{/each}}
+      </div>
+
+      <div class="col-md-4 d-flex flex-column gap-3">
+        {{#each postBaoHiem}}
+        <a href="/post/{{slug}}" rel="noopener noreferrer">
+        <div class="position-relative post-block-scale">
+          <img src="{{image}}" class="img-fluid rounded post-image" alt="">
+          <div class="post-title">
+            <span class="category-badge">{{category}}</span>
+            <h6 class="mt-2 fw-bold">{{title}}</h2>
+            <p style="color:white">Tác giả : <strong>{{author}}</strong> - {{getTime createAt}} - {{getDate createAt}}</p>
+          </div>
+        </div>
+        </a>
+        {{/each}}
+      </div>
+    </div>
+
+    <!-- What's New Section -->
+    <div class="row mb-4">
+      <div class="col-md-8">
+        <h4 class="fw-bold mb-3">Bài viết mới</h4>
+        <div class="row">
+          {{#each postList}}
+            <div class="post-block-page card mb-4 shadow-sm rounded overflow-hidden" style="max-width: 800px;">
+              <div class="row g-0 d-flex">
+                <div class="col-md-4">
+                  <img src="{{image}}" class="img-fluid rounded-start h-100 object-fit-cover" alt="Ảnh bài viết">
+                  <p style="position: absolute;top: 5px;left:5px;padding:6px 8px;background-color:#166EFD;color:#fff;border-radius:10px">{{category}}</p>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">{{title}}</h5>
+                    <p class="card-text text-muted small mb-2">Tác giả: <strong>{{author}}</strong> &nbsp;•&nbsp; {{getTime createAt}} - {{getDate createAt}}</p>
+                    <p class="card-text">{{subContent}}</p>
+                    <a href="/post/{{slug}}" class="btn btn-primary btn-sm mt-2">Đọc tiếp</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+        <nav class="mt-4">
+          <ul class="pagination justify-content-center" id="pagination"></ul>
+        </nav>
+      </div>
+      <div class="col-md-4">
+        <h6 class="fw-bold">Kết nối</h6>
+        <ul class="list-unstyled d-flex gap-2">
+          <li><i class="bi bi-facebook fs-4"></i></li>
+          <li><i class="bi bi-twitter fs-4"></i></li>
+          <li><i class="bi bi-youtube fs-4"></i></li>
+        </ul>
+        <div class="fb-page" 
+     data-href="https://www.facebook.com/erotasvnn" 
+     data-tabs="timeline" 
+     data-width="" 
+     data-height="" 
+     data-small-header="false" 
+     data-adapt-container-width="true" 
+     data-hide-cover="false" 
+     data-show-facepile="true">
+  <blockquote cite="https://www.facebook.com/reel/1069068157924279" class="fb-xfbml-parse-ignore">
+    <a href="https://www.facebook.com/erotasvnn">Facebook</a>
+  </blockquote>
+</div>
+      </div>
+    </div>
+
+    <!-- Ads Banner -->
+  <div class="slider-container mb-4 text-center">
+    <div class="slider-track">
+      <img src="/images/100bhnbaner.jpg" class="" style="witdh:100%;height: 500px;" alt="">
+      <img src="/images/100bhnbaner.jpg" class="" style="witdh:100%;height: 500px;" alt="">
+      <img src="/images/100bhnbaner.jpg" class="" style="witdh:100%;height: 500px;" alt="">
+      <img src="/images/100bhnbaner.jpg" class="" style="witdh:100%;height: 500px;" alt="">
+    </div>
+  </div>
+
+
+    <!-- Most Popular -->
+    <div class="mb-4">
+      <h4 class="fw-bold mb-3">Xem nhiều nhất</h4>
+      <div class="row g-3">
+        {{#each postViewest}}
+        <div class="col-md-3 col-sm-6 post-block-scale">
+          <img src="{{image}}" class="img-fluid rounded post-img post-image" alt="">
+          <p class="mt-2 mb-0"><a href="/post/{{slug}}" target="_blank" rel="noopener noreferrer">{{title}}</a></p>
+          <p class="text-muted small my-0">Tác giả: {{author}} • {{getTime createAt}} - {{getDate createAt}}</p>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <!-- Trending News -->
+    <div class="mb-4">
+      <h4 class="fw-bold mb-3">Tin tức kinh tế</h4>
+      <div class="row g-3">
+        {{#each postEconomy}}
+        <div class="col-md-4 post-block-scale">
+          <img src="{{image}}" class="img-fluid rounded post-img post-image" alt="">
+          <p class="mt-2 mb-0"><a href="/post/{{slug}}" target="_blank" rel="noopener noreferrer">{{title}}</a></p>
+          <p class="text-muted small my-0">Tác giả: {{author}} • {{getTime createAt}} - {{getDate createAt}}</p>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+  </div>
+  <script src="/js/slidePostListing.js"></script>
+  <script>
+  const track = document.querySelector('.slider-track');
+  let currentIndex = 0;
+  const totalSlides = track.children.length;
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }, 3000); // 3 giây đổi ảnh
+</script>

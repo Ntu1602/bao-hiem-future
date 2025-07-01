@@ -1,0 +1,149 @@
+<h1 class="m-4">Danh sách Bài Viết</h1>
+<div class="row ml-0 justify-content-center">
+  {{#each posts}}
+  <div class="col-sm-11 col-lg-3 col-md-6 Eventmain-event p-0 m-3">
+    <img src="{{image}}" alt="" style="width:100%; max-height:200px">
+    <div class="Eventmain-content">
+      <p class="color-white m-0 Eventmain-content-title">{{title}}</p>
+      <p class="color-white m-0 small">Tác giả: {{author}}</p>
+      <p class="color-white m-0 small">Ngày đăng: {{getDate createAt}}</p>
+      <p class="color-white m-0 small">Lượt xem: {{view}}</p>
+      <button 
+        class="btn-editPost" 
+        data-id="{{_id}}"
+        data-title="{{title}}"
+        data-category="{{category}}"
+        data-content="{{content}}"
+        data-scontent="{{subContent}}"
+        data-image="{{image}}"
+        data-author="{{author}}"
+        data-slug="{{slug}}"
+        data-views="{{views}}">
+        Chỉnh sửa
+      </button>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+<div id="form-editPost">
+  <h3>Chỉnh sửa thông tin bài viết</h3>
+  <form class="form-editPost" action="" method="POST" enctype="multipart/form-data">
+    <div class="mb-1">
+      <label for="title" class="form-label m-0">Tiêu đề</label>
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="mb-1">
+      <label for="category" class="form-label m-0">Danh mục</label>
+      <input type="text" class="form-control" id="category" name="category" required>
+    </div>
+    <div class="mb-1">
+      <label for="subContent" class="form-label m-0">Nội dung chính</label>
+      <textarea class="form-control" id="subContent" name="subContent" rows="3" required></textarea>
+    </div>
+    <div class="mb-1">
+      <label for="content" class="form-label m-0">Nội dung</label>
+      <textarea class="form-control" id="content" name="content" rows="6" required></textarea>
+    </div>
+    <div class="mb-1">
+      <label for="image" class="form-label m-0">Ảnh bài viết</label>
+      <input type="file" class="form-control" id="image" name="image" accept="image/*">
+      <input type="hidden" id="imagePre" name="imagePre" value="">
+    </div>
+    <div class="mb-1">
+      <label for="author" class="form-label m-0">Tác giả</label>
+      <input type="text" class="form-control" id="author" name="author" required>
+    </div>
+    <div class="mb-1">
+      <label for="slug" class="form-label m-0">Slug</label>
+      <input type="text" class="form-control" id="slug" name="slug" required>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Cập nhật</button>
+      <button class="btn btn-primary" style="background-color: red;"><a class="delete-button" style="color: white;" href="">Xoá</a></button>
+    </div>
+  </form>
+</div>
+
+<script>
+  const formEditPost = document.querySelector('.form-editPost');
+  const formEditPostWrapper = document.querySelector('#form-editPost');
+  const btnEditPost = document.querySelectorAll('.btn-editPost');
+
+  btnEditPost.forEach(btn => {
+    btn.addEventListener('click', () => {
+      formEditPost.querySelector('.delete-button').href = "/admin/delete-post/" + btn.dataset.id;
+      formEditPost.action = "/admin/edit-post/" + btn.dataset.id;
+      formEditPost.querySelector("#title").value = btn.dataset.title;
+      formEditPost.querySelector("#category").value = btn.dataset.category;
+      formEditPost.querySelector("#content").value = btn.dataset.content;
+      formEditPost.querySelector("#subContent").value = btn.dataset.scontent;
+      formEditPost.querySelector("#author").value = btn.dataset.author;
+      formEditPost.querySelector("#slug").value = btn.dataset.slug;
+      formEditPost.querySelector("#imagePre").value = btn.dataset.image;
+      formEditPostWrapper.style.right = "0px";
+    });
+  });
+
+  document.addEventListener("click", function(e) {
+    if (!formEditPostWrapper.contains(e.target) && !e.target.classList.contains("btn-editPost")) {
+      formEditPostWrapper.style.right = "-500px";
+    }
+  });
+</script>
+
+<style>
+  #form-editPost {
+    position: fixed;
+    top: 0;
+    right: -500px;
+    padding: 0 8px;
+    border-left: 2px solid #333;
+    height: 100vh;
+    background-color: #fff;
+    transition: all 1s ease;
+    z-index: 999;
+  }
+  .Eventmain-event {
+    position: relative;
+    border: 2px solid black;
+    border-radius: 20px;
+  }
+  .Eventmain-event:hover {
+    opacity: 0.85;
+  }
+  .Eventmain-event img {
+    border-radius: 20px !important;
+  }
+  .Eventmain-content {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(78, 115, 223, 0.8);
+    border-radius: 20px;
+    border: 2px solid #fff;
+  }
+  .Eventmain-content-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  .Eventmain-content button {
+    background-color: #fff;
+    color: #4E73DF;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  .Eventmain-content button:hover {
+    background-color: #4E73DF;
+    color: #fff;
+  }
+  .color-white {
+    color: #fff !important;
+  }
+</style>

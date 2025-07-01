@@ -1,0 +1,184 @@
+<h1 class="m-4">Danh sách Sự Kiện</h1>
+<div class="row ml-0 justify-content-center">
+    {{#each event}}
+    <div class="col-sm-11 col-lg-3 col-md-6 Eventmain-event p-0 m-3 ">
+        <img src="/{{thumbnail}}" alt="" style="width:100%; max-height:200px">
+        <div class="Eventmain-content" style="">
+            <p class="color-white m-0 Eventmain-content-title">{{title}}</p>
+            <p class="color-white m-0">{{getDate startAt}} - {{status}}</p>
+            <button 
+                class="btn-editEvent" 
+                data-id="{{_id}}" 
+                data-title="{{title}}" 
+                data-content="{{content}}" 
+                data-date="{{getDate startAt}}" 
+                data-time="{{getTime startAt}}" 
+                data-location="{{location}}" 
+                data-status="{{status}}" 
+                data-slug="{{slug}}"
+                data-image="{{image}}"
+                data-thumbnail="{{thumbnail}}" 
+                data-ticket="{{ticket}}">
+                Chỉnh sửa
+            </button>
+        </div>
+    </div>
+    {{/each}}
+</div>
+    <div id="form-editEvent">
+        <h3>Chỉnh sửa thông tin sự kiện.</h3>
+  <form class="form-editEvent" action="" method="POST" enctype="multipart/form-data">
+
+    <div class="mb-1">
+      <label for="title" class="form-label m-0">Tên sự kiện</label>
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+
+    <div class="mb-1">
+      <label for="content" class="form-label m-0">Nội dung</label>
+      <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
+    </div>
+
+    <div class="mb-1">
+      <label for="date" class="form-label m-0">Ngày tổ chức</label>
+      <input type="date" class="form-control" id="date" name="date" required>
+    </div>
+
+    <div class="mb-1">
+      <label for="time" class="form-label m-0">Giờ bắt đầu</label>
+      <input type="time" class="form-control" id="time" name="time" required>
+    </div>
+
+    <div class="mb-1">
+      <label for="image" class="form-label m-0">Ảnh sự kiện</label>
+      <input type="file" class="form-control" id="image" name="image" accept="image/*" >
+      <input type="hidden" id="imagePre" name="imagePre" value="">
+    </div>
+
+    <div class="mb-1">
+      <label for="thumbnail" class="form-label m-0">Thumbnail</label>
+      <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/*" >
+      <input type="hidden" id="thumbnailPre" name="thumbnailPre" value="">
+    </div>
+
+    <div class="mb-1">
+      <label for="location" class="form-label m-0">Địa chỉ tổ chức</label>
+      <input type="text" class="form-control" id="location" name="location" required>
+    </div>
+
+    <div class="mb-1">
+      <label for="status" class="form-label m-0">Trạng thái</label>
+      <select class="form-select" id="status" name="status" required>
+        <option value="upcoming">Sắp diễn ra</option>
+        <option value="ended">Đã kết thúc</option>
+      </select>
+    </div>
+
+    <div class="mb-1">
+      <label for="ticket" class="form-label m-0">Giá vé</label>
+      <input type="text" class="form-control" id="ticket" name="ticket" required>
+    </div>
+
+    <div class="mb-1">
+      <label for="slug" class="form-label m-0">Slug (đường dẫn)</label>
+      <input type="text" class="form-control" id="slug" name="slug" required>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Chỉnh sửa</button>
+    </div>
+
+  </form>
+    </div>
+
+    <script>
+        const formEditEvent = document.querySelector('.form-editEvent');
+        const formEditEventAction = document.querySelector('#form-editEvent');
+        const btnEditEvent = document.querySelectorAll('.btn-editEvent');
+        btnEditEvent.forEach(value => {
+            value.addEventListener('click', function(){
+                let date = reverseDate(value.dataset.date);
+                formEditEvent.action = "/admin/edit-event/" + value.dataset.id;
+                // Đưa dữ kiện lên form
+                formEditEvent.querySelector("#title").value = value.dataset.title;
+                formEditEvent.querySelector("#content").value = value.dataset.content;
+                formEditEvent.querySelector("#date").value = date; // nếu bạn lưu datetime
+                formEditEvent.querySelector("#time").value = value.dataset.time;
+                formEditEvent.querySelector("#location").value = value.dataset.location;
+                formEditEvent.querySelector("#status").value = value.dataset.status;
+                formEditEvent.querySelector("#ticket").value = value.dataset.ticket;
+                formEditEvent.querySelector("#slug").value = value.dataset.slug;
+                formEditEvent.querySelector("#imagePre").value = value.dataset.image;
+                formEditEvent.querySelector("#thumbnailPre").value = value.dataset.thumbnail;
+                formEditEventAction.style.right = "-500px";
+                formEditEventAction.style.right = "0px";
+                console.log(date);
+                console.log(value.dataset.time);
+            });
+        });
+        document.addEventListener("click", function(e){
+            if(!formEditEventAction.contains(e.target) && !e.target.classList.contains("btn-editEvent")){
+                formEditEventAction.style.right = "-500px";
+                console.log(e.target);
+            }  
+        });
+    function reverseDate(dateStr) {
+  // Giả sử dateStr có định dạng "DD-MM-YYYY" hoặc "DD MM YYYY"
+  const parts = dateStr.split(" - ");
+  return `${parts[2]}-${parts[1]}-${parts[0]}`;
+}
+    </script>
+<style>
+    #form-editEvent{
+        position: fixed;  
+        top: 0;
+        right: -500px;
+        padding: 0 8px;
+        border-left: 2px solid #333;
+        height: 100vh;
+        background-color: #fff;
+        transition: all 1s ease;
+    }
+    .Eventmain-event{
+        position: relative;
+        border: 2px solid black;    
+        border-radius: 20px;
+    }
+    .Eventmain-event:hover{
+        opacity: 0.8;
+    }
+    .Eventmain-event img{
+        border-radius: 20px !important;
+    }
+    .Eventmain-content{
+        position: absolute;
+        bottom:0;
+        text-align: center;
+        width: 100%;
+        background-color: rgba(78, 115, 223,0.8);
+        border-radius: 20px;
+        border: 2px solid #fff;  
+        overflow: hidden;  
+    }
+    .Eventmain-content-title{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .Eventmain-content button{
+        background-color: #fff;
+        color: #4E73DF;
+        font-weight: bold;
+    }
+    .Eventmain-content button:hover{
+        background-color: #4E73DF;
+        color: #fff;
+    }
+    .color-white{
+        color: #fff !important;
+    }
+</style>

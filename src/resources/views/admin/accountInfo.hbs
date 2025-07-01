@@ -1,0 +1,86 @@
+
+  <style>
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  </style>
+<div class="container py-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Thông tin cá nhân</h4>
+    </div>
+    <div class="card-body">
+      <!-- Thông tin cá nhân -->
+      <form>
+        <div class="text-left mb-4">
+          <img src="/images/members/hang.jpg" alt="Ảnh đại diện" class="profile-img mb-2">
+          <div class="row">
+            <div class="col-md-3">
+                <label for="image" class="form-label">Thay đổi ảnh đại diện</label>
+                <input class="form-control" type="file" id="image" name="image">
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="fullname" class="form-label">Họ tên</label>
+            <input type="text" class="form-control" id="fullname" value="{{member.name}}">
+          </div>
+          <div class="col-md-6">
+            <label for="code" class="form-label">Mã số tư vấn</label>
+            <input type="email" class="form-control" id="code" value="{{member.code}}">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="position" class="form-label">Chức vụ</label>
+            <input type="text" class="form-control" id="position" value="{{member.position}}">
+          </div>
+          <div class="col-md-6">
+            <label for="birthday" class="form-label">Ngày sinh</label>
+            <input type="text" class="form-control" id="birthday" value="{{member.birthday}}">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="phone" class="form-label">Số điện thoại</label>
+            <input type="text" class="form-control" id="phone" value="{{member.phonenumber}}">
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email" value="{{member.email}}">
+          </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="address" class="form-label">Địa chỉ</label>
+                <input type="text" class="form-control" id="address" value="{{member.address}}">
+            </div>
+        </div>
+
+        <!-- Mạng xã hội -->
+        <h5 class="mt-4">Mạng xã hội</h5>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="facebook" class="form-label">Facebook</label>
+            <input type="url" class="form-control" id="facebook" value="{{member.social_facebook}}">
+          </div>
+          <div class="col-md-6">
+            <label for="instagram" class="form-label">Zalo</label>
+            <input type="url" class="form-control" id="instagram" value="{{member.social_facebook}}">
+          </div>
+        </div>
+
+        <!-- Nút lưu -->
+        <div class="text-end">
+          <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

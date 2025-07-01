@@ -1,0 +1,49 @@
+
+<div class="container my-5">
+  <div class="card shadow rounded-4 p-4">
+    <h2 class="mb-4 text-primary">📝 Thêm bài viết mới</h2>
+
+    <form action="/admin/add-post" method="POST" enctype="multipart/form-data">
+      
+      <!-- Tiêu đề -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Tiêu đề bài viết</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+      </div>
+
+      <!-- Tác giả -->
+      <div class="mb-3">
+        <label for="author" class="form-label">Tác giả</label>
+        <input type="text" class="form-control" id="author" name="author" value="Admin" required>
+      </div>
+
+      <!-- Ảnh bìa (tùy chọn) -->
+      <div class="mb-3">
+        <label for="image" class="form-label">Ảnh bìa</label>
+        <input type="file" class="form-control" id="image" name="image" accept="image/*">
+      </div>
+
+      <!-- Danh mục bài viết -->
+      <div class="mb-3">
+        <label for="category" class="form-label">Danh mục</label>
+        <input type="text" class="form-control" id="category" name="category" required/>
+      </div>
+      <!-- Nội dung chính bài viết -->
+      <div class="mb-3">
+        <label for="ubContent" class="form-label">Nội dung chính</label>
+        <textarea class="form-control" id="subContent" name="subContent" rows="5" required></textarea>
+      </div>
+      <!-- Nội dung bài viết -->
+      <div class="mb-3">
+        <label for="content" class="form-label">Nội dung</label>
+        <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
+      </div>
+
+      <!-- Nút gửi -->
+      <div class="text-end">
+        <button type="submit" class="btn btn-primary rounded-pill px-4">Đăng bài</button>
+      </div>
+
+    </form>
+  </div>
+</div>

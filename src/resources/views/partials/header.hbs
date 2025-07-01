@@ -1,0 +1,280 @@
+{{#if success}}
+  <style>
+    #success-fireworks {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: transparent;
+      z-index: 9999;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    .fireworks-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      color: white;
+      font-weight: bold;
+      text-shadow: 0 0 20px #00ffee, 0 0 40px #00ffee;
+      z-index: 10000;
+    }
+    #success-fireworks canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+{{/if}}
+<nav class="navbar navbar-expand-lg">
+
+
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <img
+        src="/images/logo_hanwha.png"
+        class="navbar-brand-image img-fluid"
+        alt="Tiya Golf Club"
+      />
+      <span class="navbar-brand-text">
+        Hanwha Life
+        <small>Hồ Chí Minh 12</small>
+      </span>
+    </a>
+
+    <div class="d-lg-none ms-auto me-3">
+      <a
+        class="btn custom-btn custom-border-btn"
+        data-bs-toggle="offcanvas"
+        href="#offcanvasExample"
+        role="button"
+        aria-controls="offcanvasExample"
+      >Tuyển dụng</a>
+    </div>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-lg-auto">
+        <li class="nav-item">
+          <a class="nav-link click-scroll" href="/#section_1">Trang chủ</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link click-scroll" href="/#section_2">Future</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link click-scroll" href="/#section_3">Bảo hiểm</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link click-scroll" href="/#section_4">Sự kiện</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link click-scroll" href="/#section_5">Liên hệ</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link click-scroll tin-tuc" href="/post/post-listing">Tin tức</a>
+        </li>
+      </ul>
+
+      <div class="d-none d-lg-block ms-lg-3">
+        <a
+          class="btn custom-btn custom-border-btn"
+          data-bs-toggle="offcanvas"
+          href="#offcanvasExample"
+          role="button"
+          aria-controls="offcanvasExample"
+        >Tuyển dụng</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div
+  class="offcanvas offcanvas-end"
+  data-bs-scroll="true"
+  tabindex="-1"
+  id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Trở thành đại lý bảo
+      hiểm</h5>
+
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div class="offcanvas-body d-flex flex-column">
+    <form
+      class="custom-form member-login-form"
+      action="/form-recruitment"
+      method="post"
+      role="form"
+    >
+
+      <div class="member-login-form-body">
+        <div class="mb-4">
+          <label class="form-label mb-2" for="member-name">Họ và tên</label>
+
+          <input
+            type="text"
+            name="name"
+            id="member-name"
+            class="form-control"
+            placeholder="Họ và tên"
+            required
+          />
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label mb-2" for="member-birthday">Ngày sinh</label>
+
+          <input
+            type="date"
+            name="birthday"
+            id="member-birthday"
+            class="form-control"
+            placeholder="Ngày sinh"
+            required=""
+          />
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label mb-2" for="member-phone-number">Số điện thoại</label>
+
+          <input
+            type="text"
+            name="phone"
+            id="member-phone-number"
+            pattern="[0-9]+"
+            class="form-control"
+            placeholder="Số điện thoại"
+            required=""
+          />
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label mb-2" for="member-email">Email</label>
+
+          <input
+            type="email"
+            name="mail"
+            id="member-email"
+            class="form-control"
+            placeholder="Email"
+            required=""
+          />
+        </div>
+
+        <div class="col-lg-5 col-md-7 col-8 mx-auto">
+          <button type="submit" class="form-control">Đăng ký</button>
+        </div>
+
+      </div>
+    </form>
+
+    <div class="mt-auto mb-5">
+      <p class="text-center">
+
+        <a href="#" class="contact-link">
+          <strong class="text-white me-3">Quyền lợi đại lý bảo hiểm</strong>
+
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path
+      fill="#3D405B"
+      fill-opacity="1"
+      d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
+    ></path></svg>
+</div>
+{{#if success}}
+  <div id="success-fireworks">
+    <div class="fireworks-message">🎉 Đăng ký thành công! 🎉</div>
+    <canvas id="fireworks"></canvas>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('fireworks');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    function createFirework(x, y) {
+      for (let i = 0; i < 100; i++) {
+        particles.push({
+          x,
+          y,
+          angle: Math.random() * 2 * Math.PI,
+          speed: Math.random() * 5 + 2,
+          radius: Math.random() * 2 + 1,
+          life: 100,
+          color: `hsl(${Math.random() * 360}, 100%, 50%)`
+        });
+      }
+    }
+
+    function updateParticles() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      particles = particles.filter(p => p.life > 0);
+      particles.forEach(p => {
+        p.x += Math.cos(p.angle) * p.speed;
+        p.y += Math.sin(p.angle) * p.speed;
+        p.life--;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+      });
+    }
+
+    let animationId;
+    function animate() {
+      updateParticles();
+      animationId = requestAnimationFrame(animate);
+    }
+    animate();
+
+    const interval = setInterval(() => {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height * 0.5;
+      createFirework(x, y);
+    }, 800);
+
+    setTimeout(() => {
+      cancelAnimationFrame(animationId);
+      clearInterval(interval);
+      document.getElementById('success-fireworks')?.remove();
+    }, 5000);
+  </script>
+{{/if}}

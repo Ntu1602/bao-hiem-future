@@ -1,0 +1,57 @@
+<button><a href="/admin/liststaff">Trở lại</a></button>
+<div class="container mt-5">
+    <h3 class="mb-4">Thêm Thông Tin Nhân Viên</h3>
+    <form method="POST" action="/admin/addstaff" enctype="multipart/form-data">
+      <div class="mb-3">
+        
+        <label for="image" class="form-label">Ảnh đại diện</label>
+        <input type="file" class="form-control" id="image" name="image" required>
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Họ và tên</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="position" class="form-label">Chức vụ</label>
+        <input type="text" class="form-control" id="position" name="position" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="code" class="form-label">Mã số tư vấn</label>
+        <input type="text" class="form-control" id="code" name="code" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="date" class="form-label">Ngày sinh</label>
+        <input type="date" class="form-control" id="date" name="date" >
+      </div>
+
+      <div class="mb-3">
+        <label for="phonenumber" class="form-label">Số điện thoại</label>
+        <input type="tel" class="form-control" id="phonenumber" name="phonenumber" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="address" class="form-label">address</label>
+        <input type="text" class="form-control" id="address" name="address" >
+      </div>
+
+      <div class="mb-3">
+        <label for="facebook" class="form-label">Link Facebook</label>
+        <input type="text" class="form-control" id="facebook" name="facebook" >
+      </div>
+
+      <div class="mb-3">
+        <label for="zalo" class="form-label">Link Zalo</label>
+        <input type="text" class="form-control" id="zalo" name="zalo" >
+      </div>
+
+      <button type="submit" class="btn btn-primary">Thêm nhân viên</button>
+    </form>
+  </div>

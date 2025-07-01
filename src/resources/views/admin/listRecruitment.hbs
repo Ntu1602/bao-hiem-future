@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <h1>Danh sách đăng ký tuyển dụng</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+            <thead>
+                <tr>
+                    <th class="">STT</th>
+                    <th class="">Họ và tên</th>
+                    <th class="">Ngày sinh</th>
+                    <th class="">Email</th>
+                    <th class="">SĐT</th>
+                    <th class="">Thời gian</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each forms}}
+                <tr>
+                    <td class="">{{inc @index}}</td>
+                    <td class="">{{name}}</td>
+                    <td class="">{{getDate birthday}}</td>
+                    <td class="">{{mail}}</td>
+                    <td class="">{{phone}}</td>
+                    <td class="">{{getDate formAtTime}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

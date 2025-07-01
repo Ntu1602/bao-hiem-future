@@ -1,0 +1,63 @@
+<div class="container shadow p-4 bg-white rounded mt-5" style="width: 700px">
+  <h2 class="text-center mb-4">Thêm Sự Kiện</h2>
+  <form action="/admin/addevent" method="POST" enctype="multipart/form-data">
+
+    <div class="mb-3">
+      <label for="title" class="form-label">Tên sự kiện</label>
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="content" class="form-label">Nội dung</label>
+      <textarea class="form-control" id="content" name="content" rows="4" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="date" class="form-label">Ngày tổ chức</label>
+      <input type="date" class="form-control" id="date" name="date" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="time" class="form-label">Giờ bắt đầu</label>
+      <input type="time" class="form-control" id="time" name="time" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Ảnh sự kiện</label>
+      <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="thumbnail" class="form-label">Thumbnail</label>
+      <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/*" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">Địa chỉ tổ chức</label>
+      <input type="text" class="form-control" id="location" name="location" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="status" class="form-label">Trạng thái</label>
+      <select class="form-select" id="status" name="status" required>
+        <option value="upcoming">Sắp diễn ra</option>
+        <option value="ended">Đã kết thúc</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="ticket" class="form-label">Giá vé</label>
+      <input type="text" class="form-control" id="ticket" name="ticket" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="slug" class="form-label">Slug (đường dẫn)</label>
+      <input type="text" class="form-control" id="slug" name="slug" required>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Thêm Sự Kiện</button>
+    </div>
+
+  </form>
+</div>
